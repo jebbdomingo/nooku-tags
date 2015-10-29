@@ -18,9 +18,13 @@ class DatabaseTableTags extends KDatabaseTableAbstract
     protected function _initialize(Library\ObjectConfig $config)
     {
         $config->append(array(
-            'name'       => 'tags',
-            'behaviors'  => array(
-                'creatable', 'modifiable', 'lockable', 'sluggable', 'identifiable'
+            'name' => 'tags',
+            'behaviors' => array(
+                'creatable',
+                'modifiable',
+                'lockable',
+                'sluggable',
+                'identifiable'
             )
         ));
 

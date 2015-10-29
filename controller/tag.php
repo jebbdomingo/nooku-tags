@@ -22,7 +22,7 @@ abstract class ComTagsControllerTag extends ComKoowaControllerModel
         ));
 
         //Alias the permission
-        $permission         = $this->getIdentifier()->toArray();
+        $permission = $this->getIdentifier()->toArray();
         $permission['path'] = array('controller', 'permission');
 
         $this->getObject('manager')->registerAlias('com:tags.controller.permission.tag', $permission);
@@ -36,11 +36,11 @@ abstract class ComTagsControllerTag extends ComKoowaControllerModel
 
         if($view instanceof KViewTemplate)
         {
-            $layout         = $view->getIdentifier()->toArray();
+            $layout = $view->getIdentifier()->toArray();
             $layout['name'] = $view->getLayout();
             unset($layout['path'][0]);
 
-            $alias            = $layout;
+            $alias = $layout;
             $alias['package'] = 'tags';
 
             $this->getObject('manager')->registerAlias($alias, $layout);

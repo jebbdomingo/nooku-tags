@@ -21,7 +21,7 @@ class ModelTags extends KModelDatabase
 
 				// Set the state
 				$this->getState()
-		         ->insert('row'  , 'int')
+		         ->insert('row', 'int')
 		         ->insert('table', 'string', $this->getIdentifier()->package);
 		}
 

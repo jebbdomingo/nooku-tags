@@ -19,8 +19,7 @@ class ModelBehaviorTaggable extends KModelBehaviorAbstract
     {
         parent::onMixin($mixer);
 
-        $mixer->getState()
-            ->insert('tag', 'string');
+        $mixer->getState()->insert('tag', 'string');
     }
 
     protected function _beforeFetch(KModelContextInterface $context)

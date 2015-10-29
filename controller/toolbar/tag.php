@@ -18,7 +18,7 @@ class ComTagsControllerToolbarTag extends ComKoowaControllerToolbarActionbar
     protected function _commandNew(KControllerToolbarCommandInterface $command)
     {
         $component = $this->getController()->getIdentifier()->package;
-		    $view = Library\StringInflector::singularize($this->getIdentifier()->name);
+		    $view = KStringInflector::singularize($this->getIdentifier()->name);
 		    $table = $this->getController()->getModel()->getState()->table;
 
         $command->href = 'component='.$component.'&view='.$view.'&table='.$table;
