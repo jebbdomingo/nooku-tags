@@ -13,7 +13,7 @@
  * @author  Johan Janssens <http://github.com/johanjanssens>
  * @package Nooku\Component\Tags
  */
-class DatabaseTableTags extends KDatabaseTableAbstract
+class ComTagsDatabaseTableTags extends KDatabaseTableAbstract
 {
     protected function _initialize(KObjectConfig $config)
     {

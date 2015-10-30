@@ -13,9 +13,9 @@
  * @author  Tom Janssens <http://github.com/tomjanssens>
  * @package Nooku\Component\Tags
  */
-class ComTagsControllerToolbarTag extends ComKoowaControllerToolbarActionbar
+class ComTagsControllerToolbarTag extends KControllerToolbarActionbar
 {
-    protected function _commandNew(KControllerToolbarCommandInterface $command)
+    protected function _commandNew(KControllerToolbarCommand $command)
     {
         $component = $this->getController()->getIdentifier()->package;
 		    $view = KStringInflector::singularize($this->getIdentifier()->name);

@@ -13,8 +13,8 @@
  * @author  Johan Janssens <http://github.com/johanjanssens>
  * @package Nooku\Component\Tags
  */
-class ModelTags extends KModelDatabase
-{
+ class ComTagsModelTags extends KModelDatabase
+ {
 		public function __construct(KObjectConfig $config)
 		{
 				parent::__construct($config);
@@ -34,7 +34,7 @@ class ModelTags extends KModelDatabase
 		      parent::_initialize($config);
 		}
 
-		protected function _buildQueryColumns(KDatabaseQuerySelect $query)
+		protected function _buildQueryColumns(KDatabaseQueryInterface $query)
 		{
 		      parent::_buildQueryColumns($query);
 
@@ -43,19 +43,19 @@ class ModelTags extends KModelDatabase
 		      ));
 		}
 
-		protected function _buildQueryGroup(KDatabaseQuerySelect $query)
+		protected function _buildQueryGroup(KDatabaseQueryInterface $query)
 		{
 		      $query->group('tbl.tags_tag_id');
 		}
 
-		protected function _buildQueryJoins(KDatabaseQuerySelect $query)
+		protected function _buildQueryJoins(KDatabaseQueryInterface $query)
 		{
 		      parent::_buildQueryJoins($query);
 
 		      $query->join(array('relations' => 'tags_relations'), 'relations.tags_tag_id = tbl.tags_tag_id');
 		}
 
-		protected function _buildQueryWhere(KDatabaseQuerySelect $query)
+		protected function _buildQueryWhere(KDatabaseQueryInterface $query)
 		{
 		      $state = $this->getState();
 
