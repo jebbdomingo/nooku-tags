@@ -15,7 +15,7 @@
  */
 class DatabaseTableTags extends KDatabaseTableAbstract
 {
-    protected function _initialize(Library\ObjectConfig $config)
+    protected function _initialize(KObjectConfig $config)
     {
         $config->append(array(
             'name' => 'tags',
