@@ -5,7 +5,7 @@
 -- Table structure for table `tags`
 --
 
-CREATE TABLE IF NOT EXISTS `#__tags` (
+CREATE TABLE IF NOT EXISTS `tags_tags` (
   `tags_tag_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `#__tags` (
 -- Table structure for table `tags_relations`
 --
 
-CREATE TABLE IF NOT EXISTS `#__tags_relations` (
+CREATE TABLE IF NOT EXISTS `tags_tags_relations` (
 	`tags_tag_id` BIGINT(20) UNSIGNED NOT NULL,
   `row` BIGINT(20) UNSIGNED NOT NULL,
   `table` VARCHAR( 255 ) NOT NULL,
