@@ -13,7 +13,7 @@
  * @author  Johan Janssens <http://github.com/johanjanssens>
  * @package Nooku\Component\Tags
  */
-class DatabaseBehaviorTaggable extends KDatabaseBehaviorAbstract
+class ComTagsDatabaseBehaviorTaggable extends KDatabaseBehaviorAbstract
 {
     /**
      * Initializes the options for the object
@@ -37,41 +37,39 @@ class DatabaseBehaviorTaggable extends KDatabaseBehaviorAbstract
 	 *
 	 * @return Library\DatabaseRowsetInterface
 	 */
-	public function getTags()
-	{
-        $model = $this->getObject('com:tags.model.tags');
+   public function getTags()
+   {
+       $model = $this->getObject('com://admin/tags.model.tags');
 
-        if(!$this->isNew())
-        {
-            $tags = $model->row($this->id)
-                          ->table($this->getTable()->getName())
-                          ->fetch();
-        }
-        else
-        {
-            $tags = $model->fetch();
-        }
+       if(!$this->isNew())
+       {
+           $tags = $model->row($this->id)
+                         ->table($this->getTable()->getName())
+                         ->fetch();
 
-        return $tags;
-	}
+           return $tags;
+       }
 
-    /**
-	 * Modify the select query
-	 *
-	 * If the query's where information includes a tag property, auto-join the tags tables with the query and select
-     * all the rows that are tagged with a term.
-	 */
-	protected function _beforeSelect(KDatabaseContext $context)
-	{
-      $query = $context->query;
+       return;
+   }
 
-      if($context->query->params->has('tag'))
-      {
-              $table = $context->getSubject();åœœ
-              $query->where('tags.slug = :tag');
-              $query->where('tags_relations.table = :table')->bind(array('table' => $table->getName()));
-              $query->join('LEFT', 'tags_relations AS tags_relations', 'tags_relations.row = tbl.'.$table->getIdentityColumn());
-              $query->join('LEFT', 'tags AS tags', 'tags.tags_tag_id = tags_relations.tags_tag_id');
-      }
-	}
+     /**
+    * Modify the select query
+    *
+    * If the query's where information includes a tag property, auto-join the tags tables with the query and select
+      * all the rows that are tagged with a term.
+    */
+   protected function _beforeSelect(KDatabaseContext $context)
+   {
+       $query = $context->query;
+
+       if($context->query->params->has('tag'))
+       {
+           $table = $context->getSubject();
+           $query->where('tags.slug = :tag');
+           $query->where('tags_relations.table = :table')->bind(array('table' => $table->getName()));
+           $query->join('LEFT', 'tags_relations AS tags_relations', 'tags_relations.row = tbl.'.$table->getIdentityColumn());
+           $query->join('LEFT', 'tags AS tags', 'tags.tags_tag_id = tags_relations.tags_tag_id');
+       }
+   }
 }

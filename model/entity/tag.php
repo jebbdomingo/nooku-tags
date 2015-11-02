@@ -13,7 +13,7 @@
  * @author  Johan Janssens <http://github.com/johanjanssens>
  * @package Nooku\Component\Tag
  */
-class ModelEntityTag extends KModelEntityRow
+class ComTagsModelEntityTag extends KModelEntityRow
 {
 	/**
 	 * Deletes the tag form the database.
@@ -26,7 +26,7 @@ class ModelEntityTag extends KModelEntityRow
 	public function delete()
 	{
 			//Delete the tag
-			$relation = $this->getObject('com:tags.model.entity.relation');
+			$relation = $this->getObject('com:tags.model.entity.relations');
 			$relation->tags_tag_id = $this->id;
 
 			if($relation->count() <= 1) {
@@ -36,7 +36,7 @@ class ModelEntityTag extends KModelEntityRow
 			//Delete the relation
 			if($this->row && $this->table)
 	 		{
-					$relation = $this->getObject('com:tags.model.entity.relation', array('status' => Database::STATUS_FETCHED));
+					$relation = $this->getObject('com:tags.model.entity.relations', array('status' => Database::STATUS_FETCHED));
 					$relation->tags_tag_id = $this->id;
 			   	$relation->row = $this->row;
 					$relation->table = $this->table;

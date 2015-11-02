@@ -70,7 +70,7 @@ class ComTagsControllerBehaviorTaggable extends KControllerBehaviorAbstract
             }
 
             return true;
-		}
+		    }
 	}
 
 	protected function _deleteTags(KControllerContextInterface $context)

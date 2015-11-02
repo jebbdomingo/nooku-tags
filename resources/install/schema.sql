@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `tags_tags` (
 -- Table structure for table `tags_relations`
 --
 
-CREATE TABLE IF NOT EXISTS `tags_tags_relations` (
+CREATE TABLE IF NOT EXISTS `tags_relations` (
 	`tags_tag_id` BIGINT(20) UNSIGNED NOT NULL,
   `row` BIGINT(20) UNSIGNED NOT NULL,
   `table` VARCHAR( 255 ) NOT NULL,

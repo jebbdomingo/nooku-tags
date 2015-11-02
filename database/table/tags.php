@@ -18,7 +18,7 @@ class ComTagsDatabaseTableTags extends KDatabaseTableAbstract
     protected function _initialize(KObjectConfig $config)
     {
         $config->append(array(
-            'name' => 'tags',
+            'name' => 'tags_tags',
             'behaviors' => array(
                 'creatable',
                 'modifiable',

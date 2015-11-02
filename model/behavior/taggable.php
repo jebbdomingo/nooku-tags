@@ -13,7 +13,7 @@
  * @author  Johan Janssens <http://github.com/johanjanssens>
  * @package Nooku\Component\Tags
  */
-class ModelBehaviorTaggable extends KModelBehaviorAbstract
+class ComTagsModelBehaviorTaggable extends KModelBehaviorAbstract
 {
     public function onMixin(KObjectMixable $mixer)
     {

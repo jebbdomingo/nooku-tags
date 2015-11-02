@@ -32,7 +32,7 @@ abstract class ComTagsControllerTag extends ComKoowaControllerModel
 
     protected function _actionRender(KControllerContextInterface $context)
     {
-        $view = $this->getView();
+        $view = $this->getObject($this->getIdentifier())->getView();
 
         if($view instanceof KViewTemplate)
         {
@@ -41,22 +41,11 @@ abstract class ComTagsControllerTag extends ComKoowaControllerModel
             unset($layout['path'][0]);
 
             $alias = $layout;
-            $alias['package'] = 'tags';
+            $alias['package'] = $this->getIdentifier()->getPackage();
 
             $this->getObject('manager')->registerAlias($alias, $layout);
         }
 
         return parent::_actionRender($context);
-    }
-
-    public function getRequest()
-    {
-        $request = parent::getRequest();
-
-        //Force set the 'table' in the request
-        $request->query->table  = $this->getIdentifier()->package;
-        $request->data->table   = $this->getIdentifier()->package;
-
-        return $request;
     }
 }
